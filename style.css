@@ -1,0 +1,166 @@
+@@ .. @@
+-/* Baud Rate Menu */
+-.baud-rate-menu {
+-  min-width: 250px;
+-  max-width: 300px;
++/* Modular Baud Rate Menu */
++.baud-rate-modal {
++  min-width: 280px;
++  max-width: 320px;
+   color: var(--sidebar-text);
++  background: var(--sidebar);
++  border-radius: 8px;
++  overflow: hidden;
++  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+ }
+ 
+-.baud-rate-menu h3 {
++.baud-rate-header {
++  background: var(--tabbar);
++  padding: 1em 1.5em;
++  border-bottom: 1px solid var(--sidebar-divider);
++}
++
++.baud-rate-header h3 {
+   color: var(--sidebar-heading);
+-  margin: 0 0 1em 0;
++  margin: 0;
+   text-align: center;
+-  font-size: 1.1em;
++  font-size: 1em;
++  font-weight: 500;
+ }
+ 
+-.baud-rate-list {
+-  display: flex;
+-  flex-direction: column;
+-  gap: 1px;
+-  margin-bottom: 1em;
+-  max-height: 300px;
++.baud-rate-container {
++  max-height: 320px;
+   overflow-y: auto;
+-  border: 1px solid var(--sidebar-divider);
+-  border-radius: 4px;
+-  background: var(--sidebar-divider);
++  padding: 0.5em 0;
+ }
+ 
+-.baud-rate-option {
+-  background: var(--sidebar-button);
++.baud-rate-item {
++  padding: 0.8em 1.5em;
+   color: var(--sidebar-text);
+-  border: none;
+-  padding: 0.8em 1.2em;
+-  text-align: left;
+   cursor: pointer;
+-  transition: background 0.2s;
+-  font-size: 0.95em;
++  transition: all 0.2s ease;
++  font-size: 0.9em;
+   font-family: var(--mono);
++  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
++  display: flex;
++  align-items: center;
++  justify-content: center;
++  text-align: center;
+ }
+ 
+-.baud-rate-option:hover {
+-  background: var(--sidebar-h);
++.baud-rate-item:hover {
++  background: var(--sidebar-button);
++  transform: translateX(4px);
+ }
+ 
+-.baud-rate-option.selected {
++.baud-rate-item.selected {
+   background: var(--sidebar-accent);
+   color: white;
++  font-weight: bold;
++  position: relative;
+ }
+ 
+-.baud-rate-actions {
+-  display: flex;
+-  flex-direction: column;
+-  gap: 0.5em;
++.baud-rate-item.selected::before {
++  content: '●';
++  position: absolute;
++  left: 1em;
++  color: white;
++  font-size: 0.8em;
+ }
+ 
+-.baud-rate-actions .baud-rate-option {
+-  background: var(--sidebar-button);
+-  border: 1px solid var(--sidebar-divider);
+-  border-radius: 4px;
+-  text-align: center;
++.baud-rate-item.more-options {
++  background: var(--terminal-bg);
++  color: var(--sidebar-heading);
+   font-family: var(--font);
++  font-style: italic;
++  border-top: 1px solid var(--sidebar-divider);
++  border-bottom: none;
++  margin-top: 0.5em;
+ }
+ 
+-.baud-rate-cancel {
+-  background: var(--sidebar-accent);
++.baud-rate-item.more-options:hover {
++  background: var(--sidebar-button);
++  color: var(--sidebar-text);
++}
++
++.baud-rate-footer {
++  background: var(--tabbar);
++  padding: 0.8em 1.5em;
++  border-top: 1px solid var(--sidebar-divider);
++}
++
++.baud-cancel-btn {
++  width: 100%;
++  background: var(--sidebar-accent);
+   color: white;
+   border: none;
+-  padding: 0.8em 1.2em;
++  padding: 0.6em 1em;
+   cursor: pointer;
+-  transition: background 0.2s;
+-  font-size: 0.95em;
+-  border-radius: 4px;
+-  text-align: center;
++  transition: all 0.2s ease;
++  font-size: 0.9em;
++  border-radius: 5px;
++  font-weight: 500;
+ }
+ 
+-.baud-rate-cancel:hover {
++.baud-cancel-btn:hover {
+   background: #e05c7e;
++  transform: translateY(-1px);
++  box-shadow: 0 2px 8px rgba(208, 38, 98, 0.3);
++}
++
++/* Custom scrollbar for baud rate container */
++.baud-rate-container::-webkit-scrollbar {
++  width: 6px;
++}
++
++.baud-rate-container::-webkit-scrollbar-track {
++  background: var(--terminal-bg);
++}
++
++.baud-rate-container::-webkit-scrollbar-thumb {
++  background: var(--sidebar-divider);
++  border-radius: 3px;
++}
++
++.baud-rate-container::-webkit-scrollbar-thumb:hover {
++  background: var(--sidebar-accent);
+ }
