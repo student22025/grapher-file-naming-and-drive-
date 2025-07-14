@@ -1,5 +1,4 @@
-@@ .. @@
-   showBaudRateMenu() {
+showBaudRateMenu() {
      const baudRates = [300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880, 115200, 230400, 250000];
      
      showModal(`
@@ -33,42 +32,39 @@
 +        <div class="baud-rate-footer">
 +          <button id="cancel-baud" class="baud-cancel-btn">Cancel</button>
 +        </div>
-       </div>
+      </div>
      `);
-     
-     // Set up event listeners after modal is created
-     setTimeout(() => {
--      document.querySelectorAll('.baud-rate-option[data-baud]').forEach(btn => {
--        btn.onclick = () => {
--          this.baud = parseInt(btn.dataset.baud);
-+      document.querySelectorAll('.baud-rate-item[data-baud]').forEach(item => {
-+        item.onclick = () => {
-+          this.baud = parseInt(item.dataset.baud);
-           this.renderSidebar();
-           document.getElementById('modal').classList.add('hidden');
-           document.getElementById('modal').innerHTML = '';
-         };
-       });
-       
-       const moreOptionsBtn = document.getElementById('more-options-btn');
-       if (moreOptionsBtn) {
-         moreOptionsBtn.onclick = () => {
-           const customRate = prompt('Enter custom baud rate:', this.baud);
-           if (customRate && !isNaN(customRate)) {
-             this.baud = parseInt(customRate);
-             this.renderSidebar();
-           }
-           document.getElementById('modal').classList.add('hidden');
-           document.getElementById('modal').innerHTML = '';
-         };
-       }
-       
-       const cancelBtn = document.getElementById('cancel-baud');
-       if (cancelBtn) {
-         cancelBtn.onclick = () => {
-           document.getElementById('modal').classList.add('hidden');
-           document.getElementById('modal').innerHTML = '';
-         };
-       }
-     }, 10);
-   }
+    
+    // Set up event listeners after modal is created
+    setTimeout(() => {
+      document.querySelectorAll('.baud-rate-item[data-baud]').forEach(item => {
+        item.onclick = () => {
+          this.baud = parseInt(item.dataset.baud);
+          this.renderSidebar();
+          document.getElementById('modal').classList.add('hidden');
+          document.getElementById('modal').innerHTML = '';
+        };
+      });
+      
+      const moreOptionsBtn = document.getElementById('more-options-btn');
+      if (moreOptionsBtn) {
+        moreOptionsBtn.onclick = () => {
+          const customRate = prompt('Enter custom baud rate:', this.baud);
+          if (customRate && !isNaN(customRate)) {
+            this.baud = parseInt(customRate);
+            this.renderSidebar();
+          }
+          document.getElementById('modal').classList.add('hidden');
+          document.getElementById('modal').innerHTML = '';
+        };
+      }
+      
+      const cancelBtn = document.getElementById('cancel-baud');
+      if (cancelBtn) {
+        cancelBtn.onclick = () => {
+          document.getElementById('modal').classList.add('hidden');
+          document.getElementById('modal').innerHTML = '';
+        };
+      }
+    }, 10);
+  }
